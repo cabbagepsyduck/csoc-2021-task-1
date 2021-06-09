@@ -35,7 +35,8 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: violet;
+
     background-color: lightblue;
     border: greenyellow solid 8px;
+    font-size: 150px;
 }
