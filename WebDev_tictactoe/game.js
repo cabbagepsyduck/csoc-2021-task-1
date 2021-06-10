@@ -5,6 +5,7 @@ const restart_button = document.getElementById("restart");
 
 let game_title = document.getElementById("game_head_text");
 // console.log(maingrid);
+const grid_status = [null, null ,null ,null, null, null, null ,null, null];
 
 const X = "X";
 const O = "O";
@@ -20,12 +21,12 @@ const winning_state = [
 ];
 var player = X;
 
-var grid_status = [];
+// var grid_status = [];
 const game_main = () => {
     
-    for (i=0; i<9; i++){
-        grid_status.push(null);
-    }
+    // for (i=0; i<9; i++){
+    //     grid_status.push(null);
+    // }
 
     squares.forEach((square, index) =>{
 
@@ -50,8 +51,7 @@ const box_clicked = (e) => {
             player = X;
         else    
             player = O;
-      
-        
+              
 
     };
 
@@ -72,6 +72,15 @@ function check_state(){
     
     })
 }
+restart_button.addEventListener("click",() => {
+    grid_status.forEach((item, index) =>{
+        grid_status[index] = null;
+    });
+    squares.forEach((square)=> {
+        square.innerText = " ";
+    });
+    game_title.innerHTML = "Tic Tac Toe"
 
+});
 
 game_main();
